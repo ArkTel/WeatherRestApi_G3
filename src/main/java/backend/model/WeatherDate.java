@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "weather_date")
 public class WeatherDate {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     private double temperature;
     private double pressure;
