@@ -21,7 +21,7 @@ public class Menu {
         System.out.println("=====================================================");
         System.out.println("         Witaj w aplikacji pogodowej WRA-G3          ");
         System.out.println("=====================================================");
-        sleep(3000);
+        sleep(1000);
 
         System.out.println("Wybierz co chcesz zrobić wciskając odpowiedni \nnumer i zatwierdzając klawiszem enter");
 
@@ -34,6 +34,7 @@ public class Menu {
 //                AccuwetherConnection.connect();
 
                     Location location = AccuwetherDeserialize.deserialize();
+                    System.out.println(location);
                     locationRepository.save(location);
                     break;
                 }

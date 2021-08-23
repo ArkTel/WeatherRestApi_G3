@@ -1,0 +1,15 @@
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\model\Location.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\repository\LocationRepository.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\dto\Country.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\dto\LocationDto.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\connect\AccuwetherConnection.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\dto\WetherDto\Temperature.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\dto\WetherDto\DailyForecasts.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\json\AccuwetherDeserialize.java
+D:\Projects\WeatherRestApi_G3\src\main\java\presentation\Menu.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\repository\WeatherDateRepository.java
+D:\Projects\WeatherRestApi_G3\src\main\java\Main.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\dto\Region.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\model\WeatherDate.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\dto\GeoPosition.java
+D:\Projects\WeatherRestApi_G3\src\main\java\backend\connect\WetherstackConnection.java

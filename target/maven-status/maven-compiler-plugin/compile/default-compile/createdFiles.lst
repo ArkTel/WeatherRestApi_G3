@@ -1,0 +1,15 @@
+backend\dto\GeoPosition.class
+backend\json\AccuwetherDeserialize.class
+presentation\Menu.class
+backend\dto\WetherDto\DailyForecasts.class
+backend\model\Location.class
+backend\repository\WeatherDateRepository.class
+backend\dto\Country.class
+backend\connect\AccuwetherConnection.class
+backend\connect\WetherstackConnection.class
+backend\model\WeatherDate.class
+Main.class
+backend\repository\LocationRepository.class
+backend\dto\LocationDto.class
+backend\dto\Temperature.class
+backend\dto\Region.class

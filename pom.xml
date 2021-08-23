@@ -13,12 +13,14 @@
         <lombok.version>1.12.5-withoutunicodeescape</lombok.version>
         <okhttp.version>3.4.2</okhttp.version>
         <jackson.version>2.11.3</jackson.version>
-        <hibernate.version>5.4.19.Final</hibernate.version>
+<!--        <hibernate.version>5.4.24.Final</hibernate.version>-->
         <h2.version>1.4.200</h2.version>
         <lombok.version>1.18.20</lombok.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -35,7 +37,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
+            <version>5.4.24.Final</version>
         </dependency>
 
         <dependency>
@@ -48,7 +50,19 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-classic</artifactId>-->
+<!--            <version>1.2.3</version>-->
+<!--        </dependency>-->
 
     </dependencies>
+
 </project>
