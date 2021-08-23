@@ -2,14 +2,15 @@ package backend.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "weather_date")
 public class WeatherDate {
+    @Id
+    @GeneratedValue
+    private int id;
     private double temperature;
     private double pressure;
     private double humidity;
