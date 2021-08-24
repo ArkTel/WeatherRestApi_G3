@@ -43,4 +43,8 @@ public class LocationRepository {
                 .setParameter("name", name)
                 .getSingleResult();
     }
+    public boolean isContainLocationList(String name){
+        List<String> locationList = allLocation();
+        return allLocation().contains(name);
+    }
 }

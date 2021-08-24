@@ -44,10 +44,16 @@ public class Menu {
         switch (n) {
             case "1": {
 //                AccuwetherConnection.connect();
-                Location location = AccuwetherDeserialize.deserialize();
+                System.out.println("Wprowadź nazwę lokalizacji, którą chcesz dodać:");
+                String cityName = sc.next();
+                if (!locationRepository.isContainLocationList(cityName)) {
+                    Location location = AccuwetherDeserialize.deserialize(cityName);
 
 //                System.out.println(location);
-                locationRepository.save(location);
+                    locationRepository.save(location);
+                }else {
+                    System.err.println("Lokalizacja znajduje się już w bazie danych");
+                }
                 break;
             }
             case "2": {
@@ -55,8 +61,19 @@ public class Menu {
                 break;
             }
             case "3": {
-                WeatherData weatherData = WetherDateDeserialize.deserialize(locationRepository);
-                weatherDateRepository.save(weatherData);
+                System.out.println("Wprowadź nazwę lokalizacji");
+                String cityName = sc.next();
+                if (!locationRepository.isContainLocationList(cityName)) {
+                    Location location = AccuwetherDeserialize.deserialize(cityName);//
+                    locationRepository.save(location);
+
+                    WeatherData weatherData = WetherDateDeserialize.deserialize(locationRepository, cityName);
+                    weatherDateRepository.save(weatherData);
+                }else {
+                    WeatherData weatherData = WetherDateDeserialize.deserialize(locationRepository, cityName);
+                    weatherDateRepository.save(weatherData);
+                }
+
                 break;
             }
             case "0": {
@@ -64,7 +81,7 @@ public class Menu {
                 break;
             }
             default:{
-                System.out.println("ERROR");
+                System.err.println("ERROR");
             }
         }
     }

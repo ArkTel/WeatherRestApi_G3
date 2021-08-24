@@ -10,10 +10,9 @@ import java.util.Scanner;
 
 public class AccuwetherConnection {
 
-    public static String connect() throws IOException {
+    public static String connect(String cityName) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Wprowadź nazwę lokalizacji, którą chcesz dodać:");
-        String cityName = scanner.next();
+
 //        String BASE_URL = String.format("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=2TJbRd3jpjuTtVYuqGxQSXp20sQkHpyG&q=" +
 //                "%s&language=pl&details=true", cityName);
 //        String BASE_URL = String.format("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=ZybsuHWa9riITVEkvvp5yK8K5rudrPYm&q=" +
