@@ -2,21 +2,21 @@ package backend.dto.WetherDto;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 
-public class Temperature {
-    TempMetric metric;
+public class WindSpeed {
+    private WindMetric metric;
 
     @JsonGetter("Metric")
-    public TempMetric getMetric() {
+    public WindMetric getMetric() {
         return metric;
     }
 
-    public void setMetric(TempMetric metric) {
+    public void setMetric(WindMetric metric) {
         this.metric = metric;
     }
 
     @Override
     public String toString() {
-        return "Temperature{" +
+        return "WindSpeed{" +
                 "metric=" + metric +
                 '}';
     }

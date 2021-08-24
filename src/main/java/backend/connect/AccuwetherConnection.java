@@ -14,7 +14,11 @@ public class AccuwetherConnection {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Wprowadź nazwę lokalizacji, którą chcesz dodać:");
         String cityName = scanner.next();
-        String BASE_URL = String.format("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=2TJbRd3jpjuTtVYuqGxQSXp20sQkHpyG&q=" +
+//        String BASE_URL = String.format("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=2TJbRd3jpjuTtVYuqGxQSXp20sQkHpyG&q=" +
+//                "%s&language=pl&details=true", cityName);
+//        String BASE_URL = String.format("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=ZybsuHWa9riITVEkvvp5yK8K5rudrPYm&q=" +
+//                "%s&language=pl&details=true", cityName);
+        String BASE_URL = String.format("http://dataservice.accuweather.com/locations/v1/cities/search?apikey=QcCGJE5AVQwcFghI6O1tIqRPUvFRQhYr&q=" +
                 "%s&language=pl&details=true", cityName);
 
 

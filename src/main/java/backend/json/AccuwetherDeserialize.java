@@ -16,7 +16,7 @@ public class AccuwetherDeserialize {
         ObjectMapper objectMapper = new ObjectMapper()
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         LocationDto mylocalization = objectMapper.readValue(myJson, LocationDto.class);
-        System.out.println(mylocalization);
+//        System.out.println(mylocalization);
         return new Location(mylocalization.getKey(),
                 mylocalization.getLocalizedName(),
                 mylocalization.getRegion().getLocalizedName(),
