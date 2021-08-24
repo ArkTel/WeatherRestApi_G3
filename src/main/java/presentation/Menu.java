@@ -1,12 +1,13 @@
 package presentation;
 
-import backend.connect.AccuwetherConnection;
 import backend.json.AccuwetherDeserialize;
+import backend.json.WetherDateDeserialize;
 import backend.model.Location;
+import backend.model.WeatherData;
 import backend.repository.LocationRepository;
+import backend.repository.WeatherDataRepository;
 import org.hibernate.SessionFactory;
 
-import java.io.Console;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class Menu {
 
     public static void display(SessionFactory sessionFactory) throws InterruptedException, IOException {
 
-        LocationRepository locationRepository = new LocationRepository(sessionFactory.createEntityManager());
+
         System.out.println("=====================================================");
         System.out.println("         Witaj w aplikacji pogodowej WRA-G3          ");
         System.out.println("=====================================================");
@@ -27,23 +28,44 @@ public class Menu {
 
         boolean flag = true;
         while (flag) {
-            System.out.println("1. DODAJ LOKALIZACJĘ;   0.Zakończ program");
-            int n = sc.nextInt();
-            switch (n) {
-                case 1: {
-//                AccuwetherConnection.connect();
-
-                    Location location = AccuwetherDeserialize.deserialize();
-                    System.out.println(location);
-                    locationRepository.save(location);
-                    break;
-                }
-                case 0: {
-                    flag = false;
-                    System.out.println("Dziękujemy za skorzystanie z programu WRA-G3");
-                }
+            System.out.println("1. DODAJ LOKALIZACJĘ;  2.LISTA LOKALIZACJI;  3.POBIERZ DANE POGODOWE  0.Zakończ program");
+            String n = sc.next();
+            switchMenu(n, sessionFactory);
+            if (n.equals("0")){
+                flag = false;
             }
+
         }
 
+    }
+    public static void switchMenu(String n, SessionFactory sessionFactory) throws IOException {
+        LocationRepository locationRepository = new LocationRepository(sessionFactory.createEntityManager());
+        WeatherDataRepository weatherDateRepository = new WeatherDataRepository(sessionFactory.createEntityManager());
+        switch (n) {
+            case "1": {
+//                AccuwetherConnection.connect();
+                Location location = AccuwetherDeserialize.deserialize();
+
+//                System.out.println(location);
+                locationRepository.save(location);
+                break;
+            }
+            case "2": {
+                locationRepository.allLocation().forEach(System.out::println);
+                break;
+            }
+            case "3": {
+                WeatherData weatherData = WetherDateDeserialize.deserialize(locationRepository);
+                weatherDateRepository.save(weatherData);
+                break;
+            }
+            case "0": {
+                System.out.println("Dziękujemy za skorzystanie z programu WRA-G3");
+                break;
+            }
+            default:{
+                System.out.println("ERROR");
+            }
+        }
     }
 }

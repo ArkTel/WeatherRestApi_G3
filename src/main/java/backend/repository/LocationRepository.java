@@ -4,6 +4,8 @@ import backend.model.Location;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LocationRepository {
     private final EntityManager entityManager;
@@ -30,5 +32,15 @@ public class LocationRepository {
             }
             return null;
         }
+    }
+    public List<String> allLocation() {
+        String sql = "SELECT name FROM Location";
+        return entityManager.createQuery(sql, String.class)
+                .getResultList();
+    }
+    public String findKeyByName(String name) {
+        return entityManager.createQuery("SELECT key FROM Location WHERE name = :name", String.class)
+                .setParameter("name", name)
+                .getSingleResult();
     }
 }

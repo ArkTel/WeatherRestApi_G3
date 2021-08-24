@@ -20,6 +20,7 @@ public class Location {
 
     @Column(name = "location_key")
     private String key;
+
     private String name;
     private double latitude;
     private double longitude;
