@@ -11,10 +11,9 @@ import java.util.Scanner;
 
 public class AccuwetherGetData {
 
-    public static String getDate(LocationRepository locationRepository) throws IOException {
+    public static String getDate(LocationRepository locationRepository, String cityName) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj nazwę miasta");
-        String cityName = scanner.next();
+
         String cityKey = locationRepository.findKeyByName(cityName);
         String BASE_URL = String.format("http://dataservice.accuweather.com/currentconditions/v1/%s?apikey=ZybsuHWa9riITVEkvvp5yK8K5rudrPYm&details=true", cityKey);
 

@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class AccuwetherDeserialize {
-    public static Location deserialize() throws IOException {
-        String myJson = AccuwetherConnection.connect();
+    public static Location deserialize(String cityName) throws IOException {
+        String myJson = AccuwetherConnection.connect(cityName);
         myJson = myJson.substring(1, myJson.length() - 1);
 
         ObjectMapper objectMapper = new ObjectMapper()

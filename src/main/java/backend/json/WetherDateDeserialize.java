@@ -10,8 +10,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class WetherDateDeserialize {
-    public static WeatherData deserialize(LocationRepository locationRepository) throws IOException {
-        String myJson = AccuwetherGetData.getDate(locationRepository);
+    public static WeatherData deserialize(LocationRepository locationRepository, String cityName) throws IOException {
+        String myJson = AccuwetherGetData.getDate(locationRepository, cityName);
         myJson = myJson.substring(1, myJson.length() - 1);
 
         ObjectMapper objectMapper = new ObjectMapper()
