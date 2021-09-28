@@ -1,4 +1,4 @@
-package backend.dto;
+package backend.dto.AccuwetherDto;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;

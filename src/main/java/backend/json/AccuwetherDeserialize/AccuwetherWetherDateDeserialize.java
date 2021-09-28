@@ -1,7 +1,8 @@
-package backend.json;
+package backend.json.AccuwetherDeserialize;
 
 import backend.connect.AccuwetherGetData;
-import backend.dto.WetherDto.DailyForecasts;
+import backend.dto.AccuwetherDto.WetherDto.DailyForecasts;
+import backend.model.Location;
 import backend.model.WeatherData;
 import backend.repository.LocationRepository;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -9,8 +10,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-public class WetherDateDeserialize {
-    public static WeatherData deserialize(LocationRepository locationRepository, String cityName) throws IOException {
+public class AccuwetherWetherDateDeserialize {
+    public static WeatherData deserialize(LocationRepository locationRepository, String cityName, Location location) throws IOException {
         String myJson = AccuwetherGetData.getDate(locationRepository, cityName);
         myJson = myJson.substring(1, myJson.length() - 1);
 
@@ -22,6 +23,7 @@ public class WetherDateDeserialize {
                 forecasts.getRelativeHumidity(),
                 forecasts.getWind().getSpeed().getMetric().getValue(),
                 forecasts.getWind().getDirection().getLocalized(),
-                forecasts.getPressure().getMetric().getValue());
+                forecasts.getPressure().getMetric().getValue(),
+                location);
     }
 }

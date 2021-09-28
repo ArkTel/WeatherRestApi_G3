@@ -1,8 +1,8 @@
-package backend.dto.WetherDto;
+package backend.dto.AccuwetherDto.WetherDto;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 
-public class PressureMetric {
+public class TempMetric {
     private double value;
 
     @JsonGetter("Value")
@@ -16,7 +16,7 @@ public class PressureMetric {
 
     @Override
     public String toString() {
-        return "PressureMetric{" +
+        return "TempMetric{" +
                 "value=" + value +
                 '}';
     }

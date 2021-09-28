@@ -47,4 +47,11 @@ public class LocationRepository {
         List<String> locationList = allLocation();
         return allLocation().contains(name);
     }
+
+    public Location getLocationByName(String name){
+        return entityManager.createQuery("FROM Location WHERE name = :name", Location.class)
+                .setParameter("name", name)
+                .getSingleResult();
+    }
+
 }

@@ -1,14 +1,14 @@
-package backend.json;
+package backend.json.AccuwetherDeserialize;
 
 import backend.connect.AccuwetherConnection;
-import backend.dto.LocationDto;
+import backend.dto.AccuwetherDto.LocationDto;
 import backend.model.Location;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-public class AccuwetherDeserialize {
+public class AccuwetherLocationDeserialize {
     public static Location deserialize(String cityName) throws IOException {
         String myJson = AccuwetherConnection.connect(cityName);
         myJson = myJson.substring(1, myJson.length() - 1);

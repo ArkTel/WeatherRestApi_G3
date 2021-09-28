@@ -1,22 +1,22 @@
-package backend.dto.WetherDto;
+package backend.dto.AccuwetherDto.WetherDto;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 
-public class Pressure {
-    private PressureMetric metric;
+public class WindSpeed {
+    private WindMetric metric;
 
     @JsonGetter("Metric")
-    public PressureMetric getMetric() {
+    public WindMetric getMetric() {
         return metric;
     }
 
-    public void setMetric(PressureMetric metric) {
+    public void setMetric(WindMetric metric) {
         this.metric = metric;
     }
 
     @Override
     public String toString() {
-        return "Pressure{" +
+        return "WindSpeed{" +
                 "metric=" + metric +
                 '}';
     }

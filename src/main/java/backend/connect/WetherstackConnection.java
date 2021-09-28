@@ -1,2 +1,4 @@
-package backend.connect;public class WetherstackConnection {
+package backend.connect;
+
+public class WetherstackConnection {
 }

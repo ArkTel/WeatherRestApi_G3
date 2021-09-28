@@ -1,7 +1,7 @@
 package presentation;
 
-import backend.json.AccuwetherDeserialize;
-import backend.json.WetherDateDeserialize;
+import backend.json.AccuwetherDeserialize.AccuwetherLocationDeserialize;
+import backend.json.AccuwetherDeserialize.AccuwetherWetherDateDeserialize;
 import backend.model.Location;
 import backend.model.WeatherData;
 import backend.repository.LocationRepository;
@@ -47,7 +47,7 @@ public class Menu {
                 System.out.println("Wprowadź nazwę lokalizacji, którą chcesz dodać:");
                 String cityName = sc.next();
                 if (!locationRepository.isContainLocationList(cityName)) {
-                    Location location = AccuwetherDeserialize.deserialize(cityName);
+                    Location location = AccuwetherLocationDeserialize.deserialize(cityName);
 
 //                System.out.println(location);
                     locationRepository.save(location);
@@ -63,14 +63,17 @@ public class Menu {
             case "3": {
                 System.out.println("Wprowadź nazwę lokalizacji");
                 String cityName = sc.next();
+//                int id = locationRepository.getLocationId(cityName);
+                //
                 if (!locationRepository.isContainLocationList(cityName)) {
-                    Location location = AccuwetherDeserialize.deserialize(cityName);//
+                    Location location = AccuwetherLocationDeserialize.deserialize(cityName);
                     locationRepository.save(location);
 
-                    WeatherData weatherData = WetherDateDeserialize.deserialize(locationRepository, cityName);
+                    WeatherData weatherData = AccuwetherWetherDateDeserialize.deserialize(locationRepository, cityName, location);
                     weatherDateRepository.save(weatherData);
                 }else {
-                    WeatherData weatherData = WetherDateDeserialize.deserialize(locationRepository, cityName);
+                    Location location = locationRepository.getLocationByName(cityName);
+                    WeatherData weatherData = AccuwetherWetherDateDeserialize.deserialize(locationRepository, cityName, location);
                     weatherDateRepository.save(weatherData);
                 }
 

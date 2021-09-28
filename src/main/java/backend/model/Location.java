@@ -5,7 +5,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -26,6 +29,12 @@ public class Location {
     private double longitude;
     private String region;
     private String country;
+
+//    @ManyToOne
+//    private WeatherData weatherData;
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name = "location_id")
+    private List<WeatherData> weatherDataList = new ArrayList<>();
 
     public Location(String key, String name, String region, String country, double latitude, double longitude) {
         this.key = key;
